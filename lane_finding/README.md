@@ -31,8 +31,10 @@ And my region of interest is:
 np.array([[(0,imshape[0]),(imshape[1] * (0.5 - midwidth), imshape[0] * (1 - height)), (imshape[1] * (0.5 + midwidth), imshape[0] * (1 - height)), (imshape[1],imshape[0])]], dtype=np.int32)
 
 As shown below:
+ 
+![alt text][logo]
 
-[logo]: https://github.com/OnionMoeCat/udacity_self_driving_course/blob/master/lane_finding/test_images/regionOfInterest.png
+[logo]: https://github.com/OnionMoeCat/udacity_self_driving_course/blob/master/lane_finding/test_images/regionOfInterest.png "region of interest"
 
 And my parameters for Hough Lines are:
 
