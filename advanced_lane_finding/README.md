@@ -21,9 +21,9 @@ The goals / steps of this project are the following:
 
 [image1]: ./camera_calout_undis/calibration2.jpg "Undistorted"
 [image3]: ./test_images_out/straight_lines1_out.jpg "Binary Example"
-[image4]: ./camera_calout_undis/straight_lines1_draw_region.jpg "Warp Example"
-[image5]: ./camera_calout_undis/straight_lines1_warped_lane_marking.jpg "Lane region marked green"
-[image6]: ./camera_calout_undis/straight_lines1_warped_lane_marking_result.jpg "Output"
+[image4]: ./test_images_out/straight_lines1_draw_region.jpg "Warp Example"
+[image5]: ./test_images_out/straight_lines1_warped_lane_marking.jpg "Lane region marked green"
+[image6]: ./test_images_out/straight_lines1_warped_lane_marking_result.jpg "Output"
 [video1]: ./output_video/project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
