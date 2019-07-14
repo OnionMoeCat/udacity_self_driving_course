@@ -1,4 +1,4 @@
-## Writeup
+## Writeup Template
 
 ### You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
 
@@ -21,10 +21,9 @@ The goals / steps of this project are the following:
 
 [image1]: ./camera_calout_undis/calibration2.jpg "Undistorted"
 [image3]: ./test_images_out/straight_lines1_out.jpg "Binary Example"
-[image4]: ./camera_calout_undis/straight_lines1_draw_region.jpg "Warp Example"
-[image5]: ./camera_calout_undis/straight_lines1_warped_lane_marking.jpg "Lane region marked green"
-[image6]: ./camera_calout_undis/straight_lines1_warped_lane_marking_result.jpg "Output"
-[image7]: ./camera_calout_undis/straight_lines1_warped.jpg
+[image4]: ./test_images_out/straight_lines1_draw_region.jpg "Warp Example"
+[image5]: ./test_images_out/straight_lines1_warped_lane_marking.jpg "Lane region marked green"
+[image6]: ./test_images_out/straight_lines1_warped_lane_marking_result.jpg "Output"
 [video1]: ./output_video/project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
@@ -69,7 +68,7 @@ Here's an example of my output for this step.
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
-The code for my perspective transform includes a function called `warper()`. The `warper()` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points. The wrapper code is in the 6th block. I chose the hardcode the source and destination points in the following manner:
+The code for my perspective transform includes a function called `warper()`. The code is in the 6th block. The `warper()` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
 
 This resulted in the following source and destination points:
 
@@ -83,22 +82,21 @@ This resulted in the following source and destination points:
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
 ![alt text][image4]
-![alt text][image7]
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial by using the polyfit() function. The polygon between left lane and right lane is painted in green in the picture below.
+Then I did some other stuff and fit my lane lines with a 2nd order polynomial by using the polyfit() function. The polygon between left lane and right lane is painted in green in the picture below. The code is in the 8th block.
 
 ![alt text][image5]
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-I did this in lines # through # in my code in `my_other_file.py`
+I did this in the 9th block.
 I used the formula provided in the lecture. The formula generate stable curvature for larger curves, but changes a lot across framess for straight lines. This is because straight lines have a much smaller `A`, so any changes in `A` make curvature changes a lot. 
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-I used the same function `warper` to unwrap the image. And I defined a function `weighted_img` in the block 10 to apply the unwrapped image back.
+I implemented this step in lines # through # in my code
 Here is an example of my result on a test image:
 
 ![alt text][image6]
