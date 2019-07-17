@@ -87,7 +87,12 @@ I verified that my perspective transform was working as expected by drawing the 
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial by using the polyfit() function. The polygon between left lane and right lane is painted in green in the picture below.
+Then I get the lane points using the sliding window method:
+- get the bottom half of the picture
+- get the base of the left/right lane by getting the peak of histogram in left/right half of the picture
+- the sliding window of the left/right lane is a region around the base of left/right lane 
+- get all the points within the sliding window of the left/right lane
+- get the left and right lane by fitting my lane lines with a 2nd order polynomial by using the polyfit() function. The polygon between left lane and right lane is painted in green in the picture below.
 
 ![alt text][image5]
 
@@ -111,10 +116,15 @@ Here is an example of my result on a test image:
 
 Here's a [link to my video result](./project_video.mp4)
 
+The additional work I take to make the pipeline is a class LaneMarker to store the lane information from the last frame. The reason is we want the lane to stay stable across frames when the algorithm does not work well with some frames. For each frame, we check the validity of its detected lane by the lane width in pixels and if the left and right lane are parallel. If the lanes are not valid, I replace the lanes with the result from last frame. This works well in the project video. 
+
 ---
 
 ### Discussion
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+
+The approach I take here is very standard. I spent quite decent amount of time finding a good transform wrapping the picture. The pipeline will fail when there are other lines close to the lane. In the challenge video, the dark line in the center will be misidentified as the left lane. It would probably be solved by tweaking parameters in lane validation. Another issue with this pipeline is it does not work well with big turn since the sliding window assumes the existence of lane points from bottom to top. One solution: If there are not enough points in the sliding window and the window is at the border, we can drop all the points in the sliding window.
+
+The formula calculating curvature is very sensitive to the change of the 2nd order parameters when the lane is straight. This causes the curvature unstable across frames. This could be resolved by setting a maximum curvature for a straight lane (e.x, 100000m), and substitute the curvature with 100000 * curvature / (100000 + curvature), which is close to curvature when curvature is small, and to 100000 when the curvature is large.
