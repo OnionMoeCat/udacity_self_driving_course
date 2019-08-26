@@ -86,7 +86,7 @@ My final model consisted of the following layers:
 
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x3 RGB image   							| 
+| Input         		| 32x32x1 grayscale image   					| 
 | Convolution 5x5     	| 1x1 stride, valid padding, outputs 28x28x6 	|
 | RELU					|												|
 | Max pooling	      	| 2x2 stride,  outputs 14x14x16  				|
@@ -122,7 +122,7 @@ If a well known architecture was chosen:
 * Why did you believe it would be relevant to the traffic sign application: Because the paper's result is really good. 
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well: The accuracy of training set (0.999), validation set (0.954), test set (0.941). 
 
-My approach was a little of both. Like I mentioned earlier, I started with pre-defined architectures (Sermanet/LeCun model) and almost all of the tweaking from there was a process of trial and error.
+My approach was a little of both. Like I mentioned earlier, I started with pre-defined architectures (Sermanet/LeCun model) and almost all of the tweaking from there was a process of trial and error. At the start, I used the model on the original dataset (not augmented), and the accuracy of hte model on the test set was about 0.89. It was said that augmenting the dataset could see the biggest improvment in the accuracy so I augmented the dataset, and the accuracy changes to about 0.94.
  
 
 ### Test a Model on New Images
@@ -143,7 +143,7 @@ Answer: The model does not work as well as in the test dataset. The accuracy is 
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The top three softmax probabilities for the predictions on the German traffic sign images found on the web. 
+The top five softmax probabilities for the predictions on the German traffic sign images found on the web. 
 
 ![alt text][image7]
 
